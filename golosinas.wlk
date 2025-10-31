@@ -120,3 +120,16 @@ class Tuttifrutti {
 	method libreGluten() { return libreDeGluten }	
 	method libreGluten(valor) { libreDeGluten = valor }
 }
+
+class PalitoDeLaSelva inherits Tuttifrutti { //tuttifrutti es la clase padre. al override los method le indico que use los declarados en esta clase hijo y no las de la clase padre
+	var libreDeGluten
+	const sabores = [frutilla, chocolate, naranja]
+	var saborActual = 0
+	
+	override method mordisco() { saborActual += 1 }	
+	override method sabor() { return sabores.get(saborActual % 3) }	
+	override method precio() { return (if(self.libreGluten()) 7 else 10) }
+	override method peso() { return 5 }
+	override method libreGluten() { return libreDeGluten }	
+	override method libreGluten(valor) { libreDeGluten = valor }
+}
